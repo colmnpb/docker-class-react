@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t colmnpb/docker-class-react -f Dockerfile.dev .
+
+scripts:
+  - docker run -e CI=true colmnpb/docker-class-react npm run test -- --coverage
